@@ -103,13 +103,27 @@ namespace SuppliersAndConsumers
 
         public void Test3()
         {
-            var data = GetData();
+            var data = GetData().OrderBy(s=>s.CityName).ThenBy(s=>s.ProductName).ToList();
 
+            int k = 0, k1 = 0; bool a = false, a1=false;
+            Console.WriteLine("City \t\t |  Product \t| Suppliers \t\t |  Consumers \t\t  |");
+            Console.WriteLine("-----------------------------------------------------------------------------------");
             for (int i = 0; i < data.Count; i++)
             {
+                //Console.WriteLine($"{data[i].CityName}, {data[i].ProductName}   {data[i].SupplierName} : {data[i].CustomerName} \n ----------");
+                if (k == 0) k = data.Count(s => s.CityName == data[i].CityName);
+                if (k1 == 0) k1 = data.Count(s => s.ProductName == data[i].ProductName && s.CityName == data[i].CityName);
+                if (k != 0)
+                {
+                    if (!a) { Console.WriteLine($" {data[i].CityName} \n"); a = true; }
+                    k--;
+                    if (!a1) { Console.WriteLine($"\t\t\t{data[i].ProductName} \t"); a1 = true; }
+                    k1--;
+                    if (k == 0) a = false;
+                    if (k1 == 0) a1 = false;
 
-
-                //Console.WriteLine($"{data[i].CityName}, {data[i].ProductName} \n {data[i].SupplierName} : {data[i].CustomerName} \n ----------");
+                    Console.WriteLine($" \t\t\t\t {data[i].SupplierName} \t\t\t {data[i].CustomerName}");
+                }              
             }
         }
     public List<OrderMatchInfo> GetData()
@@ -123,7 +137,7 @@ namespace SuppliersAndConsumers
                 "JOIN Products on ProductId=CustomerProduct.ProductRefId AND ProductId = SupplierProduct.ProductRefId ",
                 "ORDER BY Cities.CityName"
                 );
-            string connectionString = "Server=NKOROTAEV;Initial Catalog=SuppAndConsumDB;Integrated Security=True;";
+            string connectionString = "Data Source=desktop-4c6aodq;Initial Catalog=SuppAndConsumDB;Integrated Security=True";
             var info = new List<OrderMatchInfo>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
