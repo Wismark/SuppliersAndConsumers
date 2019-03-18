@@ -134,6 +134,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportHandler.cs" />
+    <Compile Include="OrderMatch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -12,10 +12,12 @@ namespace SuppliersAndConsumers
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new UserDbInitializer());
-            var report = new ReportHandler();
-            report.GenerateReport();
-            Console.WriteLine("-----");
+           // Database.SetInitializer(new EfDbContextInitializer());   
+            var report = new ReportHandler();                 
+          //  report.GenerateReport();
+         //   report.Test();
+         //   report.Test2();
+              report.Test3();
             Console.ReadKey();
         }
     }

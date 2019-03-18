@@ -10,5 +10,9 @@ namespace SuppliersAndConsumers.Db.Entities
     {
         public int ProductId { get; set; }
         public string Name { get; set; }
+
+        public  virtual ICollection<Supplier> Suppliers { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
+
     }
 }
