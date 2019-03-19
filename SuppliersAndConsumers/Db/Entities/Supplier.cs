@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace SuppliersAndConsumers.Db.Entities
 {
@@ -8,6 +7,7 @@ namespace SuppliersAndConsumers.Db.Entities
         public int SupplierId { get; set; }
         public string SupplierName { get; set; }
         public City City { get; set; }
+        public int CityId { get; set; }
         public virtual ICollection<Product> Products { get; set; }
     }
 }

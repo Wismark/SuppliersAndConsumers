@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SuppliersAndConsumers
+﻿namespace SuppliersAndConsumers
 {
     class OrderMatchInfo
     {
@@ -13,4 +7,5 @@ namespace SuppliersAndConsumers
         public string ProductName { get; set; }
         public string CityName { get; set; }
     }
+
 }

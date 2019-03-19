@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using SuppliersAndConsumers.Db.Entities;
 
@@ -102,6 +98,13 @@ namespace SuppliersAndConsumers.Db
                 WishList = new List<Product>() { product2, product3, product5 }
             };
 
+            var customer7 = new Customer()
+            {
+                City = city3,
+                CustomerName = "Moscow elite",
+                WishList = new List<Product>() { product2, product3, product5 }
+            };
+
             var supplier1 = new Supplier()
             {
                 SupplierName = "OO. Goods",
@@ -111,14 +114,14 @@ namespace SuppliersAndConsumers.Db
 
             var supplier2 = new Supplier()
             {
-                SupplierName = "Food and Water comp.",
+                SupplierName = "Food&Water",
                 City = city2,
                 Products = new List<Product>() { product1, product2, product5, product3, product4, product6 },
             };
 
             var supplier3 = new Supplier()
             {
-                SupplierName = "Cheronvkya inc",
+                SupplierName = "Katoli inc",
                 City = city2,
                 Products = new List<Product>() {  product5, product3, product4, product6 },
             };
@@ -137,10 +140,17 @@ namespace SuppliersAndConsumers.Db
                 Products = new List<Product>() { product1, product2, product4, product6 },
             };
 
+            var supplier6 = new Supplier()
+            {
+                SupplierName = "Best food TM",
+                City = city3,
+                Products = new List<Product>() { product1, product5, product3 },
+            };
+
             db.Cities.AddRange(new[] {city, city2, city3});
             db.Products.AddRange(new[] {product1, product2, product3, product4, product5, product6});
-            db.Customers.AddRange(new[] {customer1, customer2, customer3, customer4, customer5, customer6});
-            db.Supplier.AddRange(new[] {supplier1, supplier2, supplier3, supplier4, supplier5});
+            db.Customers.AddRange(new[] {customer1, customer2, customer3, customer4, customer5, customer6, customer7});
+            db.Supplier.AddRange(new[] {supplier1, supplier2, supplier3, supplier4, supplier5, supplier6});
 
             db.SaveChanges();
 

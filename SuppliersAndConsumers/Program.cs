@@ -1,19 +1,21 @@
-﻿using SuppliersAndConsumers.Db;
-using System;
-using System.Data.Entity;
+﻿using System;
+//using System.Data.Entity;
+//using SuppliersAndConsumers.Db;
 
 namespace SuppliersAndConsumers
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-         //  Database.SetInitializer(new EfDbContextInitializer());   
-            var report = new ReportHandler();                 
+          //  Database.SetInitializer(new EfDbContextInitializer());                             
           //  report.GenerateReport();
-         //  report.Test();
-         //   report.Test2();
-              report.Test3();
+            //ReportHandler.Test();
+            //ReportHandler.Test2();
+            ////ReportHandler.GetRawData();
+            ReportHandler.ReportHandler.GenerateReport();
+            Console.WriteLine();
+            ReportHandler.ReportHandler.GenerateReportNew();
             Console.ReadKey();
         }
     }

@@ -7,6 +7,7 @@ namespace SuppliersAndConsumers.Db.Entities
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public City City { get; set; }
+        public int CityId { get; set; }
         public virtual ICollection<Product> WishList { get; set; }
 
     }
