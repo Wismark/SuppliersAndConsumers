@@ -9,7 +9,7 @@ namespace SuppliersAndConsumers.ReportHandler
     {
         public static void GenerateReport()
         {
-            var orderData = GetOrderMatchData().OrderBy(s => s.CityName).ThenBy(s => s.ProductName).ToList();
+            var orderData = GetOrderMatchData();
             Console.WriteLine("City \t\t |  Product \t| Suppliers \t\t |  Consumers \t\t  |");
             Console.WriteLine("-----------------------------------------------------------------------------------");
 
@@ -61,7 +61,8 @@ namespace SuppliersAndConsumers.ReportHandler
                 "JOIN Cities on Cities.CityId = Customers.CityId ",
                 "JOIN CustomerProduct on CustomerProduct.CustomerRefId=CustomerId ",
                 "JOIN SupplierProduct on SupplierProduct.SupplierRefId=SupplierId ",
-                "JOIN Products on ProductId=CustomerProduct.ProductRefId AND ProductId = SupplierProduct.ProductRefId "
+                "JOIN Products on ProductId=CustomerProduct.ProductRefId AND ProductId = SupplierProduct.ProductRefId " +
+                "ORDER BY Cities.CityName, Products.Name "
                 );
 
             string connectionString = "Data source=NKOROTAEV;Initial Catalog=SuppAndConsumDB;Integrated Security=True";
