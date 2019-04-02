@@ -10,7 +10,6 @@ namespace SuppliersAndConsumers.Db
             : base("DbConnection")
         { }
      
-
         public DbSet<City> Cities { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
@@ -153,8 +152,6 @@ namespace SuppliersAndConsumers.Db
             db.Supplier.AddRange(new[] {supplier1, supplier2, supplier3, supplier4, supplier5, supplier6});
 
             db.SaveChanges();
-
-            base.Seed(db);
         }
     }
 }
